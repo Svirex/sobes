@@ -1,7 +1,0 @@
-{"time":"2024-04-07T18:25:42.224079113+04:00","level":"ERROR","msg":"invalid Content-Type header"}
-{"time":"2024-04-07T18:25:42.228170754+04:00","level":"ERROR","msg":"empty body"}
-{"time":"2024-04-07T18:25:42.230751389+04:00","level":"ERROR","msg":"couldn't unmarshal body","err":"invalid character 'a' looking for beginning of value"}
-{"time":"2024-04-07T18:25:42.241301239+04:00","level":"ERROR","msg":"not found Authorization header"}
-{"time":"2024-04-07T18:25:42.24522432+04:00","level":"ERROR","msg":"invalid authorization header"}
-{"time":"2024-04-07T18:25:42.247733248+04:00","level":"ERROR","msg":"invalid token"}
-{"time":"2024-04-07T18:25:42.250345523+04:00","level":"ERROR","msg":"invalid token"}
