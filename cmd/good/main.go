@@ -15,6 +15,47 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 )
 
+var desc = `Сервис имеет два эндпойнта:
+1. POST /api/auth
+2. GET /api/servers
+
+1. POST /api/auth
+Request:
+Content-Type: application/json
+Body: {
+    "login": "test",
+    "password": "test"
+}
+
+Responses:
+- Status Code: 200
+  Content-Type: application/json
+  Body: {
+    "token": "<token>"
+  }
+
+- Status Code: 400
+  Body: {
+	"error": "invalid login or password"
+  }
+  Body: None
+
+2. GET /api/servers
+Request:
+- Authorization: Bearer <token>
+
+Responses:
+- Status Code: 200
+  Body: [
+        <list of strings>
+    ]
+Выдается попеременно два списка. Имена идут в рандомном порядке.
+Первый: Adele Ingram, Imran Bryan, Cecilia Odom, Jaydon Gould, Elodie Hendrix
+Второй: Sumaiya Cruz, Ernest Stafford, Lorraine House, Gregory O'Doherty, Mikolaj Dale
+
+- Status Code: 401
+`
+
 var errorFile *os.File
 var logger *slog.Logger
 
@@ -58,6 +99,9 @@ func Main(addr string) {
 	router.Use(middleware.Recoverer)
 	router.Post("/api/auth", Auth)
 	router.Get("/api/servers", ListServers)
+	router.HandleFunc("/desc", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte(desc))
+	})
 
 	http.ListenAndServe(addr, router)
 }
@@ -105,7 +149,7 @@ func Auth(response http.ResponseWriter, request *http.Request) {
 		}
 		body, err := json.Marshal(&e)
 		if err != nil {
-			response.WriteHeader(http.StatusBadRequest)
+			response.WriteHeader(http.StatusInternalServerError)
 			logger.Error("couldn't marshal error response", "err", err)
 			return
 		}
@@ -119,7 +163,7 @@ func Auth(response http.ResponseWriter, request *http.Request) {
 	}
 	body, err := json.Marshal(&token)
 	if err != nil {
-		response.WriteHeader(http.StatusBadRequest)
+		response.WriteHeader(http.StatusInternalServerError)
 		logger.Error("couldn't marshal token", "err", err)
 		return
 	}
@@ -129,23 +173,23 @@ func Auth(response http.ResponseWriter, request *http.Request) {
 func ListServers(response http.ResponseWriter, request *http.Request) {
 	authHeader := request.Header.Get("Authorization")
 	if authHeader == "" {
-		response.WriteHeader(http.StatusBadRequest)
+		response.WriteHeader(http.StatusUnauthorized)
 		logger.Error("not found Authorization header")
 		return
 	}
 	splitted := strings.Split(authHeader, " ")
 	if len(splitted) != 2 {
-		response.WriteHeader(http.StatusBadRequest)
+		response.WriteHeader(http.StatusUnauthorized)
 		logger.Error("invalid authorization header")
 		return
 	}
 	if splitted[0] != "Bearer" {
-		response.WriteHeader(http.StatusBadRequest)
+		response.WriteHeader(http.StatusUnauthorized)
 		logger.Error("invalid scheme, need Bearer")
 		return
 	}
 	if splitted[1] != "this_is_simple_token" {
-		response.WriteHeader(http.StatusBadRequest)
+		response.WriteHeader(http.StatusUnauthorized)
 		logger.Error("invalid token")
 		return
 	}
@@ -154,8 +198,8 @@ func ListServers(response http.ResponseWriter, request *http.Request) {
 		rand.Shuffle(len(firstList), func(i, j int) { firstList[i], firstList[j] = firstList[j], firstList[i] })
 		body, err := json.Marshal(&firstList)
 		if err != nil {
-			response.WriteHeader(http.StatusBadRequest)
-			logger.Error("marshal forst list")
+			response.WriteHeader(http.StatusInternalServerError)
+			logger.Error("marshal first list")
 			return
 		}
 		response.Write(body)
@@ -164,8 +208,8 @@ func ListServers(response http.ResponseWriter, request *http.Request) {
 		rand.Shuffle(len(secondList), func(i, j int) { secondList[i], secondList[j] = secondList[j], secondList[i] })
 		body, err := json.Marshal(&secondList)
 		if err != nil {
-			response.WriteHeader(http.StatusBadRequest)
-			logger.Error("marshal forst list")
+			response.WriteHeader(http.StatusInternalServerError)
+			logger.Error("marshal second list")
 			return
 		}
 		response.Write(body)
