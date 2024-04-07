@@ -42,13 +42,14 @@ func main() {
 	errorsFile := flag.String("e", "errors.log", "errors file")
 	flag.Parse()
 	var err error
-	errorFile, err = os.OpenFile(*errorsFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	errorFile, err = os.OpenFile(*errorsFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0664)
 	if err != nil {
 		log.Fatalf("open error file: %v", err)
 	}
-	defer os.Remove(*errorsFile)
+
 	logger = slog.New(slog.NewJSONHandler(errorFile, nil))
 	Main(addr)
+	defer os.Remove(*errorsFile)
 }
 
 func Main(addr string) {

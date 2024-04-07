@@ -149,7 +149,7 @@ func ListServers(response http.ResponseWriter, request *http.Request) {
 		body, err := json.Marshal(&firstList)
 		if err != nil {
 			response.WriteHeader(http.StatusBadRequest)
-			logger.Error("marshal forst list")
+			logger.Error("marshal first list")
 			return
 		}
 		response.Write(body)
@@ -159,7 +159,7 @@ func ListServers(response http.ResponseWriter, request *http.Request) {
 		body, err := json.Marshal(&secondList)
 		if err != nil {
 			response.WriteHeader(http.StatusBadRequest)
-			logger.Error("marshal forst list")
+			logger.Error("marshal second  list")
 			return
 		}
 		response.Write(body)
