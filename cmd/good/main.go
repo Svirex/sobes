@@ -89,11 +89,11 @@ func main() {
 	}
 
 	logger = slog.New(slog.NewJSONHandler(errorFile, nil))
-	Main(addr)
+	Main(addr, errorsFile)
 	defer os.Remove(*errorsFile)
 }
 
-func Main(addr string) {
+func Main(addr string, errorsFile *string) {
 
 	router := chi.NewRouter()
 	router.Use(middleware.Recoverer)
@@ -101,6 +101,9 @@ func Main(addr string) {
 	router.Get("/api/servers", ListServers)
 	router.HandleFunc("/desc", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(desc))
+	})
+	router.HandleFunc("/logs", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, *errorsFile)
 	})
 
 	http.ListenAndServe(addr, router)
