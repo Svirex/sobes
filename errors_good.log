@@ -1,0 +1,7 @@
+{"time":"2024-04-07T17:39:15.276850536+04:00","level":"ERROR","msg":"invalid Content-Type header"}
+{"time":"2024-04-07T17:39:15.280755829+04:00","level":"ERROR","msg":"empty body"}
+{"time":"2024-04-07T17:39:15.283107053+04:00","level":"ERROR","msg":"couldn't unmarshal body","err":"invalid character 'a' looking for beginning of value"}
+{"time":"2024-04-07T17:39:15.295018833+04:00","level":"ERROR","msg":"not found Authorization header"}
+{"time":"2024-04-07T17:39:15.297488702+04:00","level":"ERROR","msg":"invalid authorization header"}
+{"time":"2024-04-07T17:39:15.29963714+04:00","level":"ERROR","msg":"invalid scheme, need Bearer"}
+{"time":"2024-04-07T17:39:15.301652546+04:00","level":"ERROR","msg":"invalid token"}

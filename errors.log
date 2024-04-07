@@ -1,0 +1,28 @@
+{"time":"2024-04-07T17:31:28.882563636+04:00","level":"ERROR","msg":"invalid Content-Type header"}
+{"time":"2024-04-07T17:31:28.885121419+04:00","level":"ERROR","msg":"empty body"}
+{"time":"2024-04-07T17:31:28.88759914+04:00","level":"ERROR","msg":"couldn't unmarshal body","err":"invalid character 'a' looking for beginning of value"}
+{"time":"2024-04-07T17:31:28.898277965+04:00","level":"ERROR","msg":"not found Authorization header"}
+{"time":"2024-04-07T17:31:28.900498948+04:00","level":"ERROR","msg":"invalid authorization header"}
+{"time":"2024-04-07T17:31:28.902465387+04:00","level":"ERROR","msg":"invalid token"}
+{"time":"2024-04-07T17:31:28.904535844+04:00","level":"ERROR","msg":"invalid token"}
+{"time":"2024-04-07T17:31:49.870565108+04:00","level":"ERROR","msg":"invalid Content-Type header"}
+{"time":"2024-04-07T17:31:49.874426399+04:00","level":"ERROR","msg":"empty body"}
+{"time":"2024-04-07T17:31:49.87696177+04:00","level":"ERROR","msg":"couldn't unmarshal body","err":"invalid character 'a' looking for beginning of value"}
+{"time":"2024-04-07T17:31:49.886331593+04:00","level":"ERROR","msg":"not found Authorization header"}
+{"time":"2024-04-07T17:31:49.888815966+04:00","level":"ERROR","msg":"invalid authorization header"}
+{"time":"2024-04-07T17:31:49.891033362+04:00","level":"ERROR","msg":"invalid token"}
+{"time":"2024-04-07T17:31:49.894142874+04:00","level":"ERROR","msg":"invalid token"}
+{"time":"2024-04-07T17:32:31.948410749+04:00","level":"ERROR","msg":"invalid Content-Type header"}
+{"time":"2024-04-07T17:32:31.952165887+04:00","level":"ERROR","msg":"empty body"}
+{"time":"2024-04-07T17:32:31.954638166+04:00","level":"ERROR","msg":"couldn't unmarshal body","err":"invalid character 'a' looking for beginning of value"}
+{"time":"2024-04-07T17:32:31.964368221+04:00","level":"ERROR","msg":"not found Authorization header"}
+{"time":"2024-04-07T17:32:31.966921965+04:00","level":"ERROR","msg":"invalid authorization header"}
+{"time":"2024-04-07T17:32:31.969561853+04:00","level":"ERROR","msg":"invalid token"}
+{"time":"2024-04-07T17:32:31.97180144+04:00","level":"ERROR","msg":"invalid token"}
+{"time":"2024-04-07T17:38:20.15495794+04:00","level":"ERROR","msg":"invalid Content-Type header"}
+{"time":"2024-04-07T17:38:20.157306549+04:00","level":"ERROR","msg":"empty body"}
+{"time":"2024-04-07T17:38:20.160759925+04:00","level":"ERROR","msg":"couldn't unmarshal body","err":"invalid character 'a' looking for beginning of value"}
+{"time":"2024-04-07T17:38:20.169751825+04:00","level":"ERROR","msg":"not found Authorization header"}
+{"time":"2024-04-07T17:38:20.171836914+04:00","level":"ERROR","msg":"invalid authorization header"}
+{"time":"2024-04-07T17:38:20.173978239+04:00","level":"ERROR","msg":"invalid token"}
+{"time":"2024-04-07T17:38:20.176123742+04:00","level":"ERROR","msg":"invalid token"}
