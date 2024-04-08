@@ -54,6 +54,13 @@ Responses:
 Второй: Sumaiya Cruz, Ernest Stafford, Lorraine House, Gregory O'Doherty, Mikolaj Dale
 
 - Status Code: 401
+
+Адрес сервера:
+http://95.163.231.191:8080
+
+Вход по SSH:
+Login: test
+Password: dVd3wk461WCo
 `
 
 var errorFile *os.File
